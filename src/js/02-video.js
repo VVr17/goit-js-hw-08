@@ -10,7 +10,7 @@ function onPlay(event) {
     localStorage.setItem("videoplayer-current-time", `${event.seconds}`);
 }
 
-const videoPlayerCurrentTime = localStorage.getItem("videoplayer-current-time");
+const videoPlayerCurrentTime = localStorage.getItem("videoplayer-current-time") || 0;
 
 player.setCurrentTime(videoPlayerCurrentTime).then(function (seconds) {
     // seconds = the actual time that the player seeked to
