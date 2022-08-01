@@ -10,7 +10,9 @@ function onPlay(event) {
     localStorage.setItem("videoplayer-current-time", `${event.seconds}`);
 }
 
-player.setCurrentTime(localStorage.getItem("videoplayer-current-time")).then(function (seconds) {
+const videoPlayerCurrentTime = localStorage.getItem("videoplayer-current-time");
+
+player.setCurrentTime(videoPlayerCurrentTime).then(function (seconds) {
     // seconds = the actual time that the player seeked to
 }).catch(function(error) {
     switch (error.name) {
