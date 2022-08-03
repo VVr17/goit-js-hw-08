@@ -34,20 +34,20 @@ function fillInForm() {
 
 function onFormSubmit(event) {
   event.preventDefault();
+
+  console.log(outputFormData(event.target));
   
-  const {
-    elements: {
-      email,
-      message,
-    }
-  } = event.target;
-
-  const submitedFormData = {};
-  submitedFormData.email = email.value;
-  submitedFormData.message = message.value;
-
-  console.log(submitedFormData);
-
   event.target.reset();
   localStorage.removeItem(STORAGE_KEY);
+}
+
+function outputFormData(form) {
+  const submitedFormData = {};
+  
+  const formData = new FormData(form);
+  for (key of formData.keys()) {
+    submitedFormData[key] = formData.get(key);
+  }
+  
+  return submitedFormData;
 }
