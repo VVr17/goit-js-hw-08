@@ -33,11 +33,11 @@ function fillInForm() {
 }
 
 function onFormSubmit(event) {
-  event.preventDefault();
+  const form = event.target;
 
-  console.log(outputFormData(event.target));
-  
-  event.target.reset();
+  event.preventDefault();
+  console.log('SubmitedFormData',outputFormData(form));
+  form.reset();
   localStorage.removeItem(STORAGE_KEY);
 }
 
