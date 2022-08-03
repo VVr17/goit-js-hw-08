@@ -45,7 +45,7 @@ function outputFormData(form) {
   const submitedFormData = {};
   
   const formData = new FormData(form);
-  for (key of formData.keys()) {
+  for (let key of formData.keys()) {
     submitedFormData[key] = formData.get(key);
   }
   
